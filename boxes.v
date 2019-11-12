@@ -1,6 +1,6 @@
 module boxx
 
-// taken from cli-boxes repo
+// taken from cli-boxes repo: https://github.com/sindresorhus/cli-boxes
 
 fn get_boxes() map[string]Boxx {
 	return {
