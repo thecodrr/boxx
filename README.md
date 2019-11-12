@@ -131,7 +131,7 @@ struct Boxx {
 **Example:**
 
 ```javascript
-box := &Boxx {
+box := &boxx.Boxx {
     top_right: "x"
     top_left: "x"
     bottom_right: "x"
