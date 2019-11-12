@@ -10,7 +10,7 @@ const (
 	right_align = '{sep}{sp}{os}{s}{ln}{px}{sep}'
 )
 
-pub struct Box {
+pub struct Boxx {
 	top_right string
 	top_left string
 	vertical string
@@ -38,7 +38,7 @@ pub struct Config {
 }
 
 // Create a new box instance with the given config
-pub fn new(config Config) Box {
+pub fn new(config Config) Boxx {
 	boxes := get_boxes()
 	mut box := boxes[config.typ]
 	box.config = config
@@ -46,7 +46,7 @@ pub fn new(config Config) Box {
 }
 
 // Print the box with the given text & title (optional)
-pub fn (b &Box) print(text, title string) {
+pub fn (b &Boxx) print(text, title string) {
 	mut lines := []string
 	if title != '' {
 		lines << [title, '']
@@ -57,7 +57,7 @@ pub fn (b &Box) print(text, title string) {
 
 /* PRIVATE METHODS */
 
-fn (b &Box) str(title string, lines []string) string {
+fn (b &Boxx) str(title string, lines []string) string {
 	px := repeat(' ', b.config.px)
 
 	longest_line := max(lines)
@@ -132,7 +132,7 @@ fn (b &Box) str(title string, lines []string) string {
 	return '$top_bar$nl' + texts.join(nl) + '$nl$bottom_bar$nl'
 }
 
-fn (b &Box) add_vert_padding(length int)[]string {
+fn (b &Boxx) add_vert_padding(length int)[]string {
 	padding := repeat(' ', length - 2)
 
 	//check and apply styles

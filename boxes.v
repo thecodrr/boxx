@@ -1,10 +1,10 @@
-module main
+module boxx
 
 // taken from cli-boxes repo
 
-fn get_boxes() map[string]Box {
+fn get_boxes() map[string]Boxx {
 	return {
-		"single": Box{
+		"single": Boxx{
 			top_right: "┐",
 			top_left: "┌",
 			bottom_right: "┘",
@@ -12,7 +12,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "─",
 			vertical: "│"
 		},
-		"double": Box{
+		"double": Boxx{
 			top_right: "╗",
 			top_left: "╔",
 			bottom_right: "╝",
@@ -20,7 +20,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "═",
 			vertical: "║"
 		},
-		"round": Box{
+		"round": Boxx{
 			top_right: "╮",
 			top_left: "╭",
 			bottom_right: "╯",
@@ -28,7 +28,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "─",
 			vertical: "│"
 		},
-		"bold": Box{
+		"bold": Boxx{
 			top_right: "┓",
 			top_left: "┏",
 			bottom_right: "┛",
@@ -36,7 +36,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "━",
 			vertical: "┃"
 		},
-		"single_double": Box{
+		"single_double": Boxx{
 			top_right: "╖",
 			top_left: "╓",
 			bottom_right: "╜",
@@ -44,7 +44,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "─",
 			vertical: "║"
 		},
-		"double_single": Box{
+		"double_single": Boxx{
 			top_right: "╕",
 			top_left: "╒",
 			bottom_right: "╛",
@@ -52,7 +52,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "═",
 			vertical: "│"
 		},
-		"classic": Box{
+		"classic": Boxx{
 			top_right: "+",
 			top_left: "+",
 			bottom_right: "+",
@@ -60,7 +60,7 @@ fn get_boxes() map[string]Box {
 			horizontal: "-",
 			vertical: "|"
 		},
-		"hidden": Box{
+		"hidden": Boxx{
 			top_right: "+",
 			top_left: "+",
 			bottom_right: "+",
