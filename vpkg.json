@@ -1,0 +1,8 @@
+{
+  "name": "boxx",
+  "version": "0.0.1",
+  "author": ["thecodrr <thecodrr@protonmail.com>"],
+  "repo": "https://github.com/thecodrr/boxx",
+  "sources": ["https://v-pkg.github.io/registry/"],
+  "dependencies": ["https://github.com/thecodrr/crayon.git"]
+}
