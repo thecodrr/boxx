@@ -51,13 +51,13 @@ Initializes a new `Box` witht the specified `Config`
 boxx.new(Config{px: 2, py: 1, typ: "single"})
 ```
 
-### `Config `
+### `Config`
 
 `px`: Horizontal Padding
 
 `py`: Vertical Padding
 
-`content_align`:  Content Alignment inside the box
+`content_align`: Content Alignment inside the box
 
 `color` :`rgb` or named (see [Crayon](https://github.com/thecodrr/crayon) for possible values & usage)
 
@@ -156,6 +156,11 @@ Print the box according to the specified config.
 Support it by joining **[stargazers](https://github.com/thecodrr/boxx/stargazers)** for this repository. :star:or [buy me a cup of coffee](https://ko-fi.com/thecodrr)
 And **[follow](https://github.com/thecodrr)** me for my next creations! 🤩
 
+### Much thanks to the developers of these repos:
+
+1. [Atrox/box](https://github.com/Atrox/box)
+2. [sindresorhus/cli-boxes](https://github.com/sindresorhus/cli-boxes)
+
 ### License
 
 ```
@@ -182,5 +187,3 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ```
-
-
