@@ -29,10 +29,11 @@ Install using `git`:
 ```bash
 cd path/to/your/project
 git clone https://github.com/thecodrr/boxx
-# Boxx is dependent upon crayon, so install it using:
+```
+All the awesome **color support** is made possible by [thecodrr.crayon](https://github.com/thecodrr/crayon) so install it:
+```
 v install thecodrr.crayon
 ```
-
 Then in the wherever you want to use it:
 
 ```javascript
