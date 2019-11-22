@@ -1,4 +1,3 @@
-module boxx
 
 import thecodrr.crayon
 
@@ -17,7 +16,7 @@ pub struct Boxx {
 	horizontal string
 	bottom_right string
 	bottom_left string
-	
+
 	mut:
 	config Config
 }
@@ -63,10 +62,10 @@ fn (b &Boxx) str(title string, lines []string) string {
 	longest_line := max(lines)
 
 	// get half of the total padding (so just one side)
-	padding_count := (b.config.px + b.config.px) / 2
+	padding_count := b.config.px
 
 	// n is the number of chars that will create the bottom and top bars
-	n := longest_line + padding_count + (padding_count * 2)
+	n := longest_line + (padding_count * 2) + 2
 
 	// create top and bottom bars 
 	bar := repeat(b.horizontal, n - 2)
@@ -90,7 +89,7 @@ fn (b &Boxx) str(title string, lines []string) string {
 
 	for i, line in lines {
 		length := line.len
-		
+
 		// use later
 		mut space := ''
 		mut odd_space := ''
@@ -113,22 +112,22 @@ fn (b &Boxx) str(title string, lines []string) string {
 		}
 		spacing := space + px
 		mut format := if b.config.content_align == .center {center_align} else if b.config.content_align == .right {right_align} else {left_align}
-		
+
 		// if it's title center align it
 		if i < 1 && title != '' {format = center_align}
-		
+
 		// check & apply styles
 		sep := if b.config.color != '' {crayon.color('{${b.config.color} ${b.vertical}}')} else {b.vertical}
 
 		texts << format.replace('{sep}', sep)
-					   .replace('{sp}', spacing)
-					   .replace('{ln}', line)
-					   .replace('{os}', odd_space)
-					   .replace('{s}', space)
-					   .replace('{px}', px)
+		.replace('{sp}', spacing)
+		.replace('{ln}', line)
+		.replace('{os}', odd_space)
+		.replace('{s}', space)
+		.replace('{px}', px)
 	}
 	texts << b.add_vert_padding(n)
-	
+
 	return '$top_bar$nl' + texts.join(nl) + '$nl$bottom_bar$nl'
 }
 
@@ -137,13 +136,118 @@ fn (b &Boxx) add_vert_padding(length int)[]string {
 
 	//check and apply styles
 	sep := if b.config.color != '' {crayon.color('{${b.config.color} ${b.vertical}}')} else {b.vertical}
-	
+
 	mut texts := []string
 	mut i := 0
 	for {
-		i++
-		if i > b.config.py {break}
+		if i++ >= b.config.py {break}
 		texts << sep + padding + sep	
 	}
 	return texts
+}
+
+fn get_boxes() map[string]Boxx {
+	return {
+		"single": Boxx{
+			top_right: "┐",
+			top_left: "┌",
+			bottom_right: "┘",
+			bottom_left: "└",
+			horizontal: "─",
+			vertical: "│"
+		},
+		"double": Boxx{
+			top_right: "╗",
+			top_left: "╔",
+			bottom_right: "╝",
+			bottom_left: "╚",
+			horizontal: "═",
+			vertical: "║"
+		},
+		"round": Boxx{
+			top_right: "╮",
+			top_left: "╭",
+			bottom_right: "╯",
+			bottom_left: "╰",
+			horizontal: "─",
+			vertical: "│"
+		},
+		"bold": Boxx{
+			top_right: "┓",
+			top_left: "┏",
+			bottom_right: "┛",
+			bottom_left: "┗",
+			horizontal: "━",
+			vertical: "┃"
+		},
+		"single_double": Boxx{
+			top_right: "╖",
+			top_left: "╓",
+			bottom_right: "╜",
+			bottom_left: "╙",
+			horizontal: "─",
+			vertical: "║"
+		},
+		"double_single": Boxx{
+			top_right: "╕",
+			top_left: "╒",
+			bottom_right: "╛",
+			bottom_left: "╘",
+			horizontal: "═",
+			vertical: "│"
+		},
+		"classic": Boxx{
+			top_right: "+",
+			top_left: "+",
+			bottom_right: "+",
+			bottom_left: "+",
+			horizontal: "-",
+			vertical: "|"
+		},
+		"hidden": Boxx{
+			top_right: "+",
+			top_left: "+",
+			bottom_right: "+",
+			bottom_left: "+",
+			horizontal: " ",
+			vertical: " "
+		}
+	}
+}
+
+
+fn repeat(c string, n int) string {
+	if n <= 0{
+		return ''
+	}
+	mut out := []string
+	for i := 0; i < n; i++{
+		out << c
+	}
+	return out.join('')
+}
+
+fn max(arr []string) int {
+	mut last_len := 0
+	for _, key in arr {
+		len := key.len
+		if len > last_len {
+			last_len = len
+		}
+	}
+	return last_len
+}
+
+fn main() {
+	max := 10
+	for x := 0; x < max; x++ {
+		for y := 0; y < max; y++ {
+			println("Box (x: $x, y: $y)")
+			config := Config { px: x, py: y, typ: 'round' } 
+			box := new(config)
+			box.print('Hello', 'World')
+
+		}
+	}
+
 }
