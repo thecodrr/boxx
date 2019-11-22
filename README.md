@@ -48,7 +48,7 @@ And that's it!
 Initializes a new `Box` witht the specified `Config`
 
 ```javascript
-boxx.new(Config{px: 2, py: 1, typ: "single"})
+boxx.new(boxx.Config{px: 2, py: 1, typ: "single"})
 ```
 
 ### `Config`
