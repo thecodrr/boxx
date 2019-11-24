@@ -62,7 +62,7 @@ fn (b &Boxx) str(title string, lines []string) string {
 
 	longest_line := max(lines)
 
-	// get half of the total padding (so just one side)
+	// get padding on one side
 	padding_count := b.config.px
 
 	// n is the number of chars that will create the bottom and top bars
