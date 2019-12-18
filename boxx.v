@@ -52,12 +52,12 @@ pub fn (b &Boxx) print(text, title string) {
 		lines << [title, '']
 	}
 	lines << text.split(nl)
-	println(b.str(title, lines))
+	println(b.to_str(title, lines))
 }
 
 /* PRIVATE METHODS */
 
-fn (b &Boxx) str(title string, lines []string) string {
+fn (b &Boxx) to_str(title string, lines []string) string {
 	px := repeat(' ', b.config.px)
 
 	longest_line := max(lines)
