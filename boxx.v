@@ -139,9 +139,7 @@ fn (b &Boxx) add_vert_padding(length int)[]string {
 	sep := if b.config.color != '' {crayon.color('{${b.config.color} ${b.vertical}}')} else {b.vertical}
 
 	mut texts := []string
-	mut i := 0
-	for {
-		if i++ >= b.config.py {break}
+	for i in 0..b.config.py {
 		texts << sep + padding + sep	
 	}
 	return texts
