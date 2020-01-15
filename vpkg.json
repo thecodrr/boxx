@@ -1,6 +1,6 @@
 {
   "name": "boxx",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": ["thecodrr <thecodrr@protonmail.com>"],
   "repo": "https://github.com/thecodrr/boxx",
   "sources": ["https://v-pkg.github.io/registry/"],
