@@ -18,9 +18,9 @@ Install using `vpkg`
 vpkg get https://github.com/thecodrr/boxx
 ```
 
-Install using `V`'s builtin `vpm` (you will need to import the module with: `import thecodrr.boxx` with this method of installation):
+Install using `V`'s builtin `vpm`:
 
-```shell
+```bash
 v install thecodrr.boxx
 ```
 
@@ -30,13 +30,16 @@ Install using `git`:
 cd path/to/your/project
 git clone https://github.com/thecodrr/boxx
 ```
+
 All the awesome **color support** is made possible by [thecodrr.crayon](https://github.com/thecodrr/crayon) so install it:
+
 ```
 v install thecodrr.crayon
 ```
+
 Then in the wherever you want to use it:
 
-```javascript
+```v
 import boxx
 ```
 
@@ -46,10 +49,10 @@ And that's it!
 
 ### boxx.new(`Config`)
 
-Initializes a new `Box` witht the specified `Config`
+Initializes a new `Box` with the specified `Config`
 
-```javascript
-boxx.new(boxx.Config{px: 2, py: 1, typ: "single"})
+```v
+boxx.new({px: 2, py: 1, typ: "single"})
 ```
 
 ### `Config`
@@ -63,6 +66,8 @@ boxx.new(boxx.Config{px: 2, py: 1, typ: "single"})
 `color` :`rgb` or named (see [Crayon](https://github.com/thecodrr/crayon) for possible values & usage)
 
 `typ`: The type of box (see Box Types below)
+
+`title_location`: choose from one of `inside`, `top` or `bottom`
 
 #### Box Types:
 
@@ -114,11 +119,31 @@ boxx.new(boxx.Config{px: 2, py: 1, typ: "single"})
 <img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/double.png"/>
 </p>
 
+#### Title Locations:
+
+**1. `inside`**
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/double.png"/>
+</p>
+
+**2. `top`**
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/top.png"/>
+</p>
+
+**3. `bottom`**
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/bottom.png"/>
+</p>
+
 ### Boxx `struct`
 
 You can create your own boxes as well if you want using the following values:
 
-```vala
+```v
 struct Boxx {
     top_right string //the top right corner symbol
     top_left string //the top left corner symbol
@@ -131,7 +156,7 @@ struct Boxx {
 
 **Example:**
 
-```javascript
+```v
 box := &boxx.Boxx {
     top_right: "x"
     top_left: "x"
