@@ -67,7 +67,7 @@ boxx.new({px: 2, py: 1, typ: "single"})
 
 `typ`: The type of box (see Box Types below)
 
-`title_location`: choose from one of `inside`, `top` or `bottom`
+`title_position`: choose from one of `inside`, `top` or `bottom`
 
 #### Box Types:
 
@@ -119,7 +119,7 @@ boxx.new({px: 2, py: 1, typ: "single"})
 <img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/double.png"/>
 </p>
 
-#### Title Locations:
+#### Title Positions:
 
 **1. `inside`**
 
