@@ -124,7 +124,7 @@ boxx.new({px: 2, py: 1, typ: "single"})
 **1. `inside`**
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/double.png"/>
+<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/square.png"/>
 </p>
 
 **2. `top`**
