@@ -28,10 +28,10 @@ pub enum Align {
 	center
 }
 
-pub enum TitleLocation {
+pub enum TitlePosition {
 	inside
-	top_bar
-	bottom_bar
+	top
+	bottom
 }
 
 pub struct Config {
@@ -41,7 +41,7 @@ pub struct Config {
 	content_align Align
 	color string //name or rbg
 	typ string
-	title_location TitleLocation
+	title_position TitlePosition
 }
 
 // Create a new box instance with the given config
@@ -56,10 +56,10 @@ pub fn new(config Config) Boxx {
 pub fn (b &Boxx) print(text, title string) {
 	mut lines := []string
 	if title != '' {
-		if b.config.title_location != .inside && title.contains('\n') {
-			panic("Multiline titles are only supported when title_location == .inside.")
+		if b.config.title_position != .inside && title.contains('\n') {
+			panic("Multiline titles are only supported when title_position == .inside.")
 		}
-		if b.config.title_location == .inside {
+		if b.config.title_position == .inside {
 			lines << title.split(nl)
 			lines << [''] // an empty line between the title and content
 		}
@@ -83,7 +83,7 @@ fn (b &Boxx) to_str(title string, lines []string) string {
 	// n is the number of chars that will create the bottom and top bars
 	n := longest_line + (padding_count * 2) + 2
 
-	if b.config.title_location != .inside && title.len > n - 2 {
+	if b.config.title_position != .inside && title.len > n - 2 {
 		panic("Title must be lower in length than the top & bottom bars.")
 	}
 
@@ -92,11 +92,11 @@ fn (b &Boxx) to_str(title string, lines []string) string {
 	mut top_bar := '${b.top_left}${bar}${b.top_right}'
 	mut bottom_bar := '${b.bottom_left}${bar}${b.bottom_right}'
 
-	if b.config.title_location != .inside {
+	if b.config.title_position != .inside {
 		title_bar := repeat_with_string(b.horizontal, n - 2, title)
-		if b.config.title_location == .top_bar {
+		if b.config.title_position == .top {
 			top_bar = '${b.top_left}${title_bar}${b.top_right}'
-		} else if b.config.title_location == .bottom_bar {
+		} else if b.config.title_position == .bottom {
 			bottom_bar = '${b.bottom_left}${title_bar}${b.bottom_right}'
 		}
 	}
@@ -107,7 +107,7 @@ fn (b &Boxx) to_str(title string, lines []string) string {
 		bottom_bar = crayon.color('{${b.config.color} $bottom_bar}')
 	}
 
-	if b.config.title_location == .inside && top_bar.len != bottom_bar.len {
+	if b.config.title_position == .inside && top_bar.len != bottom_bar.len {
 		panic('Cannot create a box with different size top and bottom bars.')
 	}
 
