@@ -49,14 +49,7 @@ pub fn new(config Config) Boxx {
 pub fn (b &Boxx) print(text, title string) {
 	mut lines := []string
 	if title != '' {
-		for i, title_line in title.split('\n') {
-			should_add_space_before := i > 0
-			mut l := title_line
-			if should_add_space_before {
-				l = ' ' + title_line
-			}
-			lines << l
-		}
+		lines << title.split(nl)
 		lines << [''] // an empty line between the title and content
 	}
 	lines << text.split(nl)
@@ -66,6 +59,8 @@ pub fn (b &Boxx) print(text, title string) {
 /* PRIVATE METHODS */
 
 fn (b &Boxx) to_str(title string, lines []string) string {
+	titles_lines_len := title.split(nl).len
+
 	px := repeat(' ', b.config.px)
 
 	longest_line := max(lines)
@@ -123,7 +118,7 @@ fn (b &Boxx) to_str(title string, lines []string) string {
 		mut format := if b.config.content_align == .center {center_align} else if b.config.content_align == .right {right_align} else {left_align}
 
 		// if it's title center align it
-		if i < 1 && title != '' {format = center_align}
+		if i < titles_lines_len && title != '' {format = center_align}
 
 		// check & apply styles
 		sep := if b.config.color != '' {crayon.color('{${b.config.color} ${b.vertical}}')} else {b.vertical}
