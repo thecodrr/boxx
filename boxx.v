@@ -49,7 +49,15 @@ pub fn new(config Config) Boxx {
 pub fn (b &Boxx) print(text, title string) {
 	mut lines := []string
 	if title != '' {
-		lines << [title, '']
+		for i, title_line in title.split('\n') {
+			should_add_space_before := i > 0
+			mut l := title_line
+			if should_add_space_before {
+				l = ' ' + title_line
+			}
+			lines << l
+		}
+		lines << [''] // an empty line between the title and content
 	}
 	lines << text.split(nl)
 	println(b.to_str(title, lines))
