@@ -1,5 +1,7 @@
 module boxx
 
+import thecodrr.crayon
+
 fn repeat(c string, n int) string {
 	if n <= 0{
 		return ''
@@ -14,7 +16,7 @@ fn repeat(c string, n int) string {
 fn max(arr []string) int {
 	mut last_len := 0
 	for _, key in arr {
-		len := key.len
+		len := crayon.strip_text(key).len
 		if len > last_len {
 			last_len = len
 		}
