@@ -1,13 +1,13 @@
+<p align="center">
+<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/example.png"/>
+</p>
+
 <div align="center">
 <h1>📦 Boxx</h1>
 </div>
 
 <p align="center">
 Create highly customizable terminal boxes that also look great!
-</p>
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/example.png"/>
 </p>
 
 ## Installation:
