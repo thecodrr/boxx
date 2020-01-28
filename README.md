@@ -7,7 +7,7 @@ Create highly customizable terminal boxes that also look great!
 </p>
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/main.png"/>
+<img src="https://raw.githubusercontent.com/thecodrr/boxx/master/Screenshots/example.png"/>
 </p>
 
 ## Installation:
