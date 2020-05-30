@@ -54,7 +54,7 @@ pub fn new(config Config) Boxx {
 
 // Print the box with the given text & title (optional)
 pub fn (b &Boxx) print(text, title string) {
-	mut lines := []string
+	mut lines := []string{}
 	if title != '' {
 		if b.config.title_position != .inside && title.contains('\n') {
 			panic("Multiline titles are only supported when title_position == .inside.")
@@ -112,7 +112,7 @@ fn (b &Boxx) to_str(title string, lines []string) string {
 	}
 
 	// create lines to print
-	mut texts := []string
+	mut texts := []string{}
 
 	texts << b.add_vert_padding(n)
 
@@ -166,7 +166,7 @@ fn (b &Boxx) add_vert_padding(length int)[]string {
 	//check and apply styles
 	sep := if b.config.color != '' {crayon.color('{${b.config.color} ${b.vertical}}')} else {b.vertical}
 
-	mut texts := []string
+	mut texts := []string{}
 	for _ in 0..b.config.py {
 		texts << sep + padding + sep	
 	}
