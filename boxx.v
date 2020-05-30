@@ -23,8 +23,8 @@ pub struct Boxx {
 }
 
 pub enum Align {
-	left,
-	right,
+	left
+	right
 	center
 }
 
