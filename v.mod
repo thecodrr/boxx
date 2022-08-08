@@ -1,5 +1,5 @@
 Module {
 	name:    'boxx'
-	version: '0.0.3'
+	version: '0.0.4'
 	deps:    ['thecodrr.crayon']
 }
