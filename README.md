@@ -40,7 +40,7 @@ v install thecodrr.crayon
 Then in the wherever you want to use it:
 
 ```v
-import boxx
+import boxx // or with vpm use thecodrr.boxx
 ```
 
 And that's it!
@@ -52,7 +52,8 @@ And that's it!
 Initializes a new `Box` with the specified `Config`
 
 ```v
-boxx.new({px: 2, py: 1, typ: "single"})
+    box := boxx.new(boxx.Config{px: 2, py: 1, typ: "single", color: "green"})
+    box.print("Boxx is a great start for CLI tools.", "Welcome to Boxx!")
 ```
 
 ### `Config`

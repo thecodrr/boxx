@@ -9,7 +9,7 @@ fn repeat(c string, n int) string {
 	}
 	mut builder := strings.new_builder(n)
 	for i := 0; i < n; i++{
-		builder.write(c)
+		builder.write_string(c)
 	}
 	str := builder.str()
 	//builder.free()

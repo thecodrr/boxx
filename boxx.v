@@ -49,7 +49,7 @@ pub fn new(config Config) Boxx {
 	boxes := get_boxes()
 	mut box := boxes[config.typ]
 	box.config = config
-	return &box
+	return box
 }
 
 // Print the box with the given text & title (optional)
